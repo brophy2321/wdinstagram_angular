@@ -14,14 +14,14 @@
     <h2> wdinstagram </h2>
 
     <div ng-repeat="wdinstagram in vm.wdinstagrams | filter: {completed: false}">
-       <p> ng-show="wdinstagram.completed">{{$index + 1}}. {{wdinstagram.photo_url}} - {{wdinstagram.completed}}</p>
+       <p> ng-show="wdinstagram.completed">{{$index + 1}}. {{wdinstagram.author}} - {{wdinstagram.completed}}</p>
      </div>
 
 
      <div ng-repeat="wdinstagram in vm.wdinstagram">
-       <img ng-src= {{ wdinstagram.photo_url}} >
        <p> {{ wdinstagram.author}}</p>
        <p> {{ wdinstagram.body}}</p>
+       <img ng-src="{{ wdinstagram.photo_url}}">
      </div>
   </body>
 </html>
