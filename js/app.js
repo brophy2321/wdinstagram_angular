@@ -1,6 +1,6 @@
 
 
-let instaData = [
+let wdinstagramData = [
   {photo_url: 'http://images.footballfanatics.com/AppLogos/NFL/NFL_Pittsburgh_Steelers_200x200_trans.png', author: 'Ryan ', body: '6X Superbowl Champs '},
   {photo_url: 'https://pbs.twimg.com/profile_images/779056518616473600/9nGIAN9D.jpg', author: 'Ryan', body: '4x Stanley Cup Champs'},
   {photo_url: ' http://a.fssta.com/content/dam/fsdigital/fscom/global/dev/static_resources/mlb/teams/retina/23.vresize.200.200.medium.0.png', author: 'Ryan', body: '5x World Series Champs'},
@@ -9,15 +9,15 @@ let instaData = [
 
 
   angular
-  .module("wdinstagram", [])
-  .controller("instaCtrl", [instaController])
+    .module("wdinstagramApp", [])
+  .controller("wdinstagramCtrl", [ wdinstagramController])
 
 
-function instaController(){
-  this.insta = instaData
-  this.newInsta= {}
-    this.addInsta = function () {
-      this.insta.push(this.newInsta)
-      this.newInsta = {}
+function wdinstagramController(){
+  this.wdinstagram = wdinstagramData
+  this.newWdinstagram = {}
+    this.addWdinstagram= function () {
+      this.wdinstagram.push(this.newWdinstagram)
+      this.newWdinstagram = {}
     }
 }
