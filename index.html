@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='wdinstagram'>
   <head>
     <title>Angular</title>
     <link rel="stylesheet" href="style.css" />
@@ -7,9 +7,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-resource.min.js"></script>
     <base href="/" />
-
     <script src="js/app.js"></script>
+
   </head>
-  <body>
+  <body ng-controller="instaController as vm">
+    <div ng-repeat="insta in vm.instas | filter: {completed: false}">
+       <p>{{$index + 1}}. {{insta.photo_url}} - {{insta.completed}}</p>
+     </div>
+     <div ng-repeat="insta in vm.insta">
+       <img ng-src= {{ insta.photo_url}} >
+       <p> {{ insta.photo_url}}</p>
+       <p> {{ insta.photo_url}}</p>
   </body>
 </html>
