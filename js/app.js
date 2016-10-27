@@ -18,24 +18,24 @@
       "$resource",
       InstaFactoryFunction
     ])
-    .controller("InstaIndexController" ,[
+    .controller("EntryIndexController" ,[
       "InstaFactory",
-      InstaIndexControllerFunction
+      EntryIndexControllerFunction
     ])
 
-    .controller("InstaShowController", [
+    .controller("EntryShowController", [
       "InstaFactory" ,
       "$stateParams",
-      InstaShowControllerFunction
+      EntryShowControllerFunction
     ])
-  function InstaShowControllerFunction( InstaFactory, $stateParams) {
+  function EntryShowControllerFunction( InstaFactory, $stateParams) {
     this.entries = InstaFactory.get ( { id: $stateParams.id});
   }
 
-  function InstaFactoryFunction ($resource) {
+  function EntryFactoryFunction ($resource) {
     return $resource ( "http://localhost:3000/entries/:id");
   }
-  function InstaIndexControllerFunction ( InstaFactory) {
+  function EntryFactoryIndexControllerFunction ( InstaFactory) {
     this.entries = InstaFactory.query();
   }
 
@@ -47,8 +47,20 @@
       controller: "InstaIndexController",
       controllerAs: "InstaIndexViewModel"
     })
+    .state("entryNew", {
+      url: "/entries/new",
+      templateUrl: "js/ng-views/new.html" ,
+      controller: "EntryNewController" ,
+      controllerAs: "vm"
+    })
 
-    .state(entryShow)
+
+    .state("entryShow", {
+      url: "/entries/:id",
+      templateUrl: "js/ng-views/show.html" ,
+      controller: "EntryShowController" ,
+      controllerAs: "vm"
+    })
   }
 
 
